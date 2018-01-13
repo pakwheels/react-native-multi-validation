@@ -1,9 +1,12 @@
 {
   "name": "react-native-multi-validation",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Highly customizable validation with styling support for different states",
   "main": "index.js",
-  "repository": "https://hunaid-hassan-confiz@github.com/pakwheels/react-native-multi-validation",
+  "repository": {
+    "type": "git",
+    "url": "git+https://hunaid-hassan-confiz@github.com/pakwheels/react-native-multi-validation"
+  },
   "author": "Hunaid Hassan <hhunaid@gmail.com>",
   "license": "MIT",
   "private": false,

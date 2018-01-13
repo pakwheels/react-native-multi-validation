@@ -14,7 +14,8 @@ export default class FieldBase extends Component {
 
   static propTypes = {
     disabled: PropTypes.bool,
-    errorTextStyle: Text.propTypes.style
+    errorTextStyle: Text.propTypes.style,
+    name: PropTypes.string
   };
 
   constructor(props, context) {
@@ -71,7 +72,17 @@ export default class FieldBase extends Component {
     return true;
   }
 
+  toObject() {
+    let obj = {};
+    obj[this.props.name] = this.getValue();
+    return obj;
+  }
+
   _getInnerComponent() {
+    throw "Should be overridden by subclass";
+  }
+
+  getValue() {
     throw "Should be overridden by subclass";
   }
 

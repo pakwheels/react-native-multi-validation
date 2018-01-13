@@ -58,7 +58,11 @@ export default class Form extends React.Component {
   }
 
   validate() {
+    return this.childs.every((child) => child.validate());
+  }
 
+  getPostObject() {
+    return this.childs.reduce(((a, b) => {return {...a, ...b.toObject()}}), {});
   }
 
   render() {
