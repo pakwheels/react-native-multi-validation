@@ -32,6 +32,10 @@ export default class SelectionField extends FieldBase {
     this.validate();
   }
 
+  getValue() {
+    return this.props.value;
+  }
+
   validate() {
     if (this.state.value) {
       return true;

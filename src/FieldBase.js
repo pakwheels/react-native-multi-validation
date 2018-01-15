@@ -73,6 +73,9 @@ export default class FieldBase extends Component {
   }
 
   toObject() {
+    if (!this.props.name) {
+      return {};
+    }
     let obj = {};
     obj[this.props.name] = this.getValue();
     return obj;
