@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DefaultRules from "./DefaultRules";
 import DefaultMessages from "./DefaultMessages";
-import {Platform, UIManager, View} from "react-native";
+import {Platform, UIManager, View, ViewPropTypes} from "react-native";
 
 export default class Form extends React.Component {
   static childContextTypes = {
@@ -10,7 +10,7 @@ export default class Form extends React.Component {
   };
 
   static propTypes = {
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
     instantValidate: PropTypes.bool,
   };
 

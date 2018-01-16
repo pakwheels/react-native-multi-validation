@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Text, View, TouchableOpacity, LayoutAnimation} from "react-native";
+import {Text, View, TouchableOpacity, LayoutAnimation, ViewPropTypes} from "react-native";
 import FieldBase from "./FieldBase";
 
 export default class SelectionField extends FieldBase {
@@ -13,9 +13,9 @@ export default class SelectionField extends FieldBase {
     value: PropTypes.string,
     placeholder: PropTypes.string,
     onPress: PropTypes.func.isRequired,
-    style: View.propTypes.style,
-    passStyle: View.propTypes.style,
-    failStyle: View.propTypes.style,
+    style: ViewPropTypes.style,
+    passStyle: ViewPropTypes.style,
+    failStyle: ViewPropTypes.style,
     textStyle: Text.propTypes.style
   };
 
