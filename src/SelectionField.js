@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Text, View, TouchableOpacity, LayoutAnimation, ViewPropTypes} from "react-native";
+import {Text, View, TouchableOpacity, ViewPropTypes} from "react-native";
 import FieldBase from "./FieldBase";
 
 export default class SelectionField extends FieldBase {
@@ -23,13 +23,11 @@ export default class SelectionField extends FieldBase {
     value: this.props.value
   };
 
-  componentWillUpdate() {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-  }
-
   componentWillReceiveProps(nextProps) {
-    this.state.value = nextProps.value;
-    this.validate();
+    if (this.state.value != nextProps.value) {
+      this.state.value = nextProps.value;
+      this.validate();
+    }
   }
 
   getValue() {

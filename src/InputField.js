@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {TextInput, LayoutAnimation} from 'react-native';
+import {TextInput} from 'react-native';
 import FieldBase from "./FieldBase";
 
 export default class InputField extends FieldBase {
@@ -32,10 +32,6 @@ export default class InputField extends FieldBase {
   componentWillMount() {
     super.componentWillMount();
     this.state.value = this.props.value;
-  }
-
-  componentWillUpdate() {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
   }
 
   getValue() {
@@ -91,6 +87,7 @@ export default class InputField extends FieldBase {
         editable={!this.props.disabled}
         onBlur={this._onBlur}
         onFocus={this._onFocus}
+        value={this.state.value}
       />
     )
   }

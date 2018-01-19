@@ -12,10 +12,12 @@ export default class Form extends React.Component {
   static propTypes = {
     style: ViewPropTypes.style,
     instantValidate: PropTypes.bool,
+    initialValues: PropTypes.object
   };
 
   static defaultProps = {
     instantValidate: true,
+    initialValues: {}
   };
 
   constructor(props, context) {
@@ -43,9 +45,20 @@ export default class Form extends React.Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (!Object.is(nextProps.initialValues, this.props.initialValues)) {
+      this.childs
+        .filter(child => !!child.props.name)
+        .forEach(child => child.setInitialValue(nextProps.initialValues[child.props.name]));
+    }
+  }
+
   attachToForm(component) {
     if (this.childs.indexOf(component) === -1) {
       this.childs.push(component);
+      if (component.props.name) {
+        component.setInitialValue(this.props.initialValues[component.props.name])
+      }
     }
   }
 

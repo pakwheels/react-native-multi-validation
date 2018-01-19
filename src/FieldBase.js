@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+import { View, Text, LayoutAnimation } from 'react-native';
 
-export default class FieldBase extends Component {
+export default class FieldBase extends React.Component {
   static contextTypes = {
     form: PropTypes.object,
   };
@@ -51,9 +51,19 @@ export default class FieldBase extends Component {
     this.context.form.detachFromForm(this);
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if (this.state.errorMessage != nextState.errorMessage) {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    }
+  }
+
   configure() {
     this.context.form.attachToForm(this);
     this.instantValidate = this.context.form.instantValidate;
+  }
+
+  setInitialValue(value) {
+    this.setState({ value });
   }
 
   validate() {
