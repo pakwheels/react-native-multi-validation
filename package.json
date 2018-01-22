@@ -1,6 +1,6 @@
 {
   "name": "react-native-multi-validation",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Highly customizable validation with styling support for different states",
   "main": "index.js",
   "repository": {

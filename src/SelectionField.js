@@ -24,10 +24,11 @@ export default class SelectionField extends FieldBase {
   };
 
   componentWillReceiveProps(nextProps) {
-    if (this.state.value != nextProps.value) {
-      this.state.value = nextProps.value;
-      this.validate();
+    if (this.state.value === nextProps.value) {
+      return;
     }
+    this.state.value = nextProps.value;
+    this.validate();
   }
 
   getValue() {
@@ -36,6 +37,8 @@ export default class SelectionField extends FieldBase {
 
   validate() {
     if (this.state.value) {
+      delete this.state.errorMessage;
+      this.setState(this.state);
       return true;
     }
     this.setState({errorMessage: "This field is required"});
