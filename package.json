@@ -1,6 +1,6 @@
 {
   "name": "react-native-multi-validation",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Highly customizable validation with styling support for different states",
   "main": "index.js",
   "repository": {
@@ -11,7 +11,8 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "shallow-compare": "^1.2.2"
   },
   "peerDependencies": {
     "react-native": ">= 0.50"

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import DefaultRules from "./DefaultRules";
 import DefaultMessages from "./DefaultMessages";
 import {Platform, UIManager, View, ViewPropTypes} from "react-native";
+import shallowCompare from 'shallow-compare';
+
 
 export default class Form extends React.Component {
   static childContextTypes = {
@@ -46,7 +48,7 @@ export default class Form extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!Object.is(nextProps.initialValues, this.props.initialValues)) {
+    if (shallowCompare(this, nextProps.initialValues, this.props.initialValues)) {
       this.childs
         .filter(child => !!child.props.name)
         .forEach(child => child.setInitialValue(nextProps.initialValues[child.props.name]));

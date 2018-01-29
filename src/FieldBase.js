@@ -52,7 +52,7 @@ export default class FieldBase extends React.Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if (this.state.errorMessage != nextState.errorMessage) {
+    if (this.state.errorMessage !== nextState.errorMessage) {
       LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     }
   }
