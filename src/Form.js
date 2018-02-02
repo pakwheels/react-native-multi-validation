@@ -48,7 +48,7 @@ export default class Form extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (shallowCompare(this, nextProps.initialValues, this.props.initialValues)) {
+    if (this.props.initialValues && shallowCompare(this, nextProps.initialValues, this.props.initialValues)) {
       this.childs
         .filter(child => !!child.props.name)
         .forEach(child => child.setInitialValue(nextProps.initialValues[child.props.name]));
